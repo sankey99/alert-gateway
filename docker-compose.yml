@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  app:
+    build: .
+    container_name: alert
+    ports:
+      - "8000:8000"        # Exposes FastAPI app on port 8000
+    env_file:
+      - .env               # Loads environment variables from .env file
+    volumes:
+      - .:/app             # Maps the current directory to /app inside the container
+    restart: always        # Restarts container if it crashes
